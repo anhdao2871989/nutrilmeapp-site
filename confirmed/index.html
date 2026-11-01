@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email confirmed | Nutril Me</title>
+<meta name="description" content="Your Nutril Me email address is confirmed.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<meta property="og:title" content="Email confirmed | Nutril Me">
+<meta property="og:description" content="Your Nutril Me email address is confirmed.">
+<meta property="og:image" content="https://nutrilmeapp.com/hero.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="/"><img src="/icon.png" alt="" width="40" height="40"><span><b>Nutril</b> <i>Me</i></span></a>
+    <nav><a href="/">Home</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
+  </div>
+</header>
+<main class="wrap doc">
+<section class="confirm" id="confirm" hidden>
+  <svg class="confirm-icon ok" viewBox="0 0 76 76" aria-hidden="true">
+    <circle cx="38" cy="38" r="38"/><path d="M23 39l10 10 20-22" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <svg class="confirm-icon bad" viewBox="0 0 76 76" aria-hidden="true">
+    <circle cx="38" cy="38" r="38"/><path d="M38 20v22" stroke="#fff" stroke-width="7" stroke-linecap="round"/><circle cx="38" cy="55" r="4.5" fill="#fff"/>
+  </svg>
+  <h1 data-t="title"></h1>
+  <p data-t="body"></p>
+  <a class="store open-app" id="open-app" href="com.nutrilme.app://auth-callback?next=/you" hidden data-t="open"></a>
+  <p class="muted" id="desktop-note" data-t="desktop" hidden></p>
+</section>
+<noscript>
+  <section class="confirm">
+    <h1>Email confirmed</h1>
+    <p>Your Nutril Me account is ready. Go back to the app to continue. If you're signed out, sign in with your email and password.</p>
+  </section>
+</noscript>
+<script>
+  // Supabase sends people here from the "Confirm your email" link. A failed link
+  // (expired or already used) arrives with error details in the query or fragment.
+  (function () {
+    var T = {
+      en: { ok: "Email confirmed", okBody: "Your Nutril Me account is ready. Go back to the app to continue. If you're signed out, sign in with your email and password.", bad: "This link has expired", badBody: "Confirmation links work once and expire after 24 hours. If you already tapped it, your email is confirmed: just sign in. Otherwise, open Nutril Me and sign up again to get a new link.", open: "Open Nutril Me", desktop: "On a computer? Open Nutril Me on your phone and sign in." },
+      es: { ok: "Correo confirmado", okBody: "Tu cuenta de Nutril Me está lista. Vuelve a la app para continuar. Si cerraste sesión, inicia sesión con tu correo y contraseña.", bad: "Este enlace ha caducado", badBody: "Los enlaces de confirmación funcionan una sola vez y caducan a las 24 horas. Si ya lo tocaste, tu correo está confirmado: solo inicia sesión. Si no, abre Nutril Me y regístrate de nuevo para recibir un enlace nuevo.", open: "Abrir Nutril Me", desktop: "¿Estás en una computadora? Abre Nutril Me en tu teléfono e inicia sesión." },
+      fr: { ok: "E-mail confirmé", okBody: "Votre compte Nutril Me est prêt. Revenez dans l'app pour continuer. Si vous êtes déconnecté, connectez-vous avec votre e-mail et votre mot de passe.", bad: "Ce lien a expiré", badBody: "Les liens de confirmation ne fonctionnent qu'une fois et expirent après 24 heures. Si vous l'avez déjà utilisé, votre e-mail est confirmé : connectez-vous simplement. Sinon, ouvrez Nutril Me et inscrivez-vous à nouveau pour recevoir un nouveau lien.", open: "Ouvrir Nutril Me", desktop: "Sur un ordinateur ? Ouvrez Nutril Me sur votre téléphone et connectez-vous." },
+      ru: { ok: "Почта подтверждена", okBody: "Ваш аккаунт Nutril Me готов. Вернитесь в приложение, чтобы продолжить. Если вы вышли из аккаунта, войдите с помощью почты и пароля.", bad: "Срок действия ссылки истёк", badBody: "Ссылка подтверждения работает один раз и действует 24 часа. Если вы уже нажимали её, почта подтверждена: просто войдите. Иначе откройте Nutril Me и зарегистрируйтесь снова, чтобы получить новую ссылку.", open: "Открыть Nutril Me", desktop: "Вы за компьютером? Откройте Nutril Me на телефоне и войдите." },
+      zh: { ok: "邮箱已确认", okBody: "你的 Nutril Me 账户已准备就绪。返回 App 继续使用。如果你已退出登录，请用邮箱和密码登录。", bad: "此链接已过期", badBody: "确认链接只能使用一次，24 小时后失效。如果你已经点过，邮箱已确认，直接登录即可。否则请打开 Nutril Me 重新注册以获取新链接。", open: "打开 Nutril Me", desktop: "在电脑上？请在手机上打开 Nutril Me 并登录。" },
+      ja: { ok: "メールアドレスを確認しました", okBody: "Nutril Me のアカウントの準備ができました。アプリに戻って続けてください。サインアウトしている場合は、メールアドレスとパスワードでサインインしてください。", bad: "このリンクは期限切れです", badBody: "確認リンクは1回のみ有効で、24時間で期限切れになります。すでにタップした場合はメールアドレスは確認済みなので、サインインしてください。そうでない場合は、Nutril Me を開いてもう一度登録し、新しいリンクを受け取ってください。", open: "Nutril Me を開く", desktop: "パソコンをお使いですか？スマートフォンで Nutril Me を開いてサインインしてください。" },
+      ko: { ok: "이메일이 확인되었습니다", okBody: "Nutril Me 계정이 준비되었습니다. 앱으로 돌아가 계속하세요. 로그아웃된 경우 이메일과 비밀번호로 로그인하세요.", bad: "링크가 만료되었습니다", badBody: "확인 링크는 한 번만 사용할 수 있으며 24시간 후 만료됩니다. 이미 눌렀다면 이메일은 확인된 상태이니 로그인하세요. 그렇지 않다면 Nutril Me를 열고 다시 가입해 새 링크를 받으세요.", open: "Nutril Me 열기", desktop: "컴퓨터에서 보고 계신가요? 휴대폰에서 Nutril Me를 열고 로그인하세요." },
+      hi: { ok: "ईमेल की पुष्टि हो गई", okBody: "आपका Nutril Me खाता तैयार है। जारी रखने के लिए ऐप पर वापस जाएँ। अगर आप साइन आउट हैं, तो अपने ईमेल और पासवर्ड से साइन इन करें।", bad: "यह लिंक समाप्त हो गया है", badBody: "पुष्टि लिंक केवल एक बार काम करते हैं और 24 घंटे बाद समाप्त हो जाते हैं। अगर आपने पहले ही टैप कर दिया है, तो आपका ईमेल पुष्ट है: बस साइन इन करें। नहीं तो Nutril Me खोलें और नया लिंक पाने के लिए फिर से साइन अप करें।", open: "Nutril Me खोलें", desktop: "कंप्यूटर पर हैं? अपने फ़ोन पर Nutril Me खोलें और साइन इन करें।" },
+      ar: { ok: "تم تأكيد البريد الإلكتروني", okBody: "حسابك في Nutril Me جاهز. عد إلى التطبيق للمتابعة. إذا كنت قد سجّلت الخروج، فسجّل الدخول ببريدك الإلكتروني وكلمة المرور.", bad: "انتهت صلاحية هذا الرابط", badBody: "تعمل روابط التأكيد مرة واحدة وتنتهي صلاحيتها بعد 24 ساعة. إذا كنت قد ضغطت عليه من قبل، فبريدك مؤكَّد: ما عليك إلا تسجيل الدخول. وإلا فافتح Nutril Me وسجّل مرة أخرى للحصول على رابط جديد.", open: "افتح Nutril Me", desktop: "هل تستخدم حاسوبًا؟ افتح Nutril Me على هاتفك وسجّل الدخول." },
+      vi: { ok: "Đã xác nhận email", okBody: "Tài khoản Nutril Me của bạn đã sẵn sàng. Quay lại ứng dụng để tiếp tục. Nếu bạn đã đăng xuất, hãy đăng nhập bằng email và mật khẩu.", bad: "Liên kết này đã hết hạn", badBody: "Liên kết xác nhận chỉ dùng được một lần và hết hạn sau 24 giờ. Nếu bạn đã nhấn rồi thì email đã được xác nhận: chỉ cần đăng nhập. Nếu chưa, hãy mở Nutril Me và đăng ký lại để nhận liên kết mới.", open: "Mở Nutril Me", desktop: "Đang dùng máy tính? Hãy mở Nutril Me trên điện thoại và đăng nhập." }
+    };
+    var langs = (navigator.languages || [navigator.language || "en"]).map(function (l) { return String(l).slice(0, 2).toLowerCase(); });
+    var lang = langs.filter(function (l) { return T[l]; })[0] || "en";
+    var s = T[lang];
+
+    var params = new URLSearchParams(location.search + "&" + location.hash.replace(/^#/, ""));
+    var failed = params.has("error") || params.has("error_code") || params.has("error_description");
+
+    document.documentElement.lang = lang;
+    if (lang === "ar") document.documentElement.dir = "rtl";
+    var text = {
+      title: failed ? s.bad : s.ok,
+      body: failed ? s.badBody : s.okBody,
+      open: s.open,
+      desktop: s.desktop
+    };
+    document.title = text.title + " | Nutril Me";
+    document.querySelectorAll("[data-t]").forEach(function (el) { el.textContent = text[el.getAttribute("data-t")]; });
+
+    var box = document.getElementById("confirm");
+    box.classList.toggle("failed", failed);
+    box.hidden = false;
+    var phone = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    document.getElementById(phone ? "open-app" : "desktop-note").hidden = false;
+    // The one-time code in the address isn't needed here: drop it from the address bar.
+    history.replaceState(null, "", location.pathname);
+  })();
+</script>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav><a href="/">Home</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
+    <p>© 2026 Anh Dao · <a href="mailto:support@nutrilmeapp.com">support@nutrilmeapp.com</a></p>
+  </div>
+</footer>
+</body>
+</html>
