@@ -87,3 +87,16 @@ th { color: var(--muted); font-weight: 700; }
 .confirm .bad, .confirm.failed .ok { display: none; }
 .confirm.failed .bad { display: block; }
 .open-app { text-decoration: none; margin-top: 12px; }
+
+/* /reset/: "Set a new password" page for reset-password email links */
+.reset form { text-align: start; margin-top: 18px; }
+.reset label { display: block; font-weight: 700; margin: 14px 0 6px; }
+.reset input {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 17px; padding: 12px 14px;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--text);
+}
+.reset input:focus { outline: 2px solid var(--green); outline-offset: 1px; }
+.reset .hint { color: var(--muted); font-size: 15px; margin: 8px 0 0; }
+.reset .error { color: #C0392B; font-size: 15px; margin: 10px 0 0; }
+.reset button.store { width: 100%; border: 0; cursor: pointer; margin-top: 18px; font: inherit; font-weight: 700; }
+.reset button.store:disabled { opacity: 0.6; cursor: default; }
